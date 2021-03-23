@@ -1,10 +1,13 @@
 body{
 	font-family: 'Calibri';
-	background-image: url('backgroundd2.jpg');
-	background-repeat-x: repeat;
-	background-repeat-y: repeat;
+	background: rgb(0,149,219);
+	background: linear-gradient(180deg, rgba(0,149,219,1) 0%, rgba(0,65,96,1) 100%);
+/*	background-image: url('background.png');
+	background-size: 100%;*/
+/*	background-repeat-x: repeat;
+	background-repeat-y: repeat;*/
 	/*background-color: #3a000b;*/
-	color: #ffc900;
+	color: #ffa000;
 }
 
 h1{
@@ -14,7 +17,7 @@ h1{
 
 p{
 	font-family: 'Calibri';
-	color: #ffc900;
+	color: #ffa000;
 }
 
 
@@ -40,13 +43,13 @@ p{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
-	background-color: #830019;
+	background-color: #004160;
 	font-size: 40px;
 	text-align: center;
 }
 
 .timer_container .days_div{
-	background-color: #1b0005;
+	background-color: #001824;
 	border-radius: 10px;
 	border: solid 2px #ffa000;
 	display: inline-flex;
@@ -68,7 +71,7 @@ p{
 }
 
 .timer_container .hours_div{
-	background-color: #1b0005;
+	background-color: #001824;
 	border-radius: 10px;
 	border: solid 2px #ffa000;
 	margin: none;
@@ -89,7 +92,7 @@ p{
 }
 
 .timer_container .mins_div{
-	background-color: #1b0005;
+	background-color: #001824;
 	border-radius: 10px;
 	border: solid 2px #ffa000;
 	margin: none;
@@ -110,7 +113,7 @@ p{
 }
 
 .timer_container .secs_div{
-	background-color: #1b0005;
+	background-color: #001824;
 	border-radius: 10px;
 	border: solid 2px #ffa000;
 	margin: none;
@@ -132,7 +135,7 @@ p{
 }
 
 .timer_container .colon_div{
-	background-color: #1b0005;
+	background-color: #001824;
 	border: solid 2px #ffa000;
 	border-radius: 10px;
 	margin: none;
@@ -154,7 +157,7 @@ p{
 }
 
 .data{
-	background-color: #830019;
+	background-color: #004160;
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 10px;
@@ -166,6 +169,8 @@ p{
 	background-color: #101010;
 	padding: 10px;
 	border-radius: 5px;
+	text-align: center;
+	font-style: italic;
 }
 
 .image .meme{
@@ -176,7 +181,7 @@ p{
 
 
 .progbar{
-	background-color: #830019;
+	background-color: #004160;
 	text-align: center;
 	padding: 10px;
 	border-radius: 5px;
