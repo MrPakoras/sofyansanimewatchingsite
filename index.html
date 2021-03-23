@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' type='text/css' href='pagecss.css'>
+<link rel="shortcut icon" href="https://cdn.myanimelist.net/images/userimages/6643756.jpg" />
+<title>SAWS</title>
+
+<body>
+
+<div class='title'>
+	<h1 class='title_text'>Time since Sofyan watched Episode </h1>
+	<h1 class='title_text' id='eps_watched_text'>-</h1>
+	<h1 class='title_text'> of Naruto Shippuden</h1>
+</div>
+
+<div class='timer_container'>
+	<div class='days_div'>
+		<p id='days_text' class='days_text'>--</p>
+	</div>
+	<div class='hours_div'>	
+		<p id='hours_text' class='hours_text'>--</p>
+	</div> 
+	<div class='colon_div'><p class='colon_text'> : </p></div>
+	<div class='mins_div'>
+		<p id='mins_text' class='mins_text'>--</p>
+	</div>
+	<div class='colon_div'><p class='colon_text'> : </p></div>
+	<div class='secs_div'>
+		<p id='secs_text' class='secs_text'>--</p>
+	</div>
+</div>
+
+<div class='text'>
+
+<script>
+var start_date = new Date('12/04/2020').getTime(); // Edit this
+var init_start_date = new Date('Feb 28 2021').getTime();
+
+var now = new Date().getTime();
+var time_since = now - start_date;
+
+var eps_watched = 15; // Edit this
+document.getElementById('eps_watched_text').innerHTML = '\xa0' + eps_watched + '\xa0';
+
+var eps_total = 295; // Minus fillers
+/*
+fetch('file://./ep.txt')
+  .then(response => response.text())
+  .then(text => console.log(text))
+ // outputs the content of the text file
+*/
+
+var eps_rem = eps_total - eps_watched;
+
+var x = setInterval(function() {
+	var now = new Date().getTime();
+	var time_since = now - start_date;
+	
+
+	var init_time_since = now - init_start_date;
+	var time_finish = ((init_time_since / eps_watched) * eps_rem);
+
+
+	var days = Math.floor(time_since / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((time_since % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((time_since % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((time_since % (1000 * 60)) / 1000);
+	
+	var years_fin = Math.floor(time_finish / (1000 * 60 * 60 * 24 * 365));
+	var days_fin = Math.floor((time_finish % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+	var hours_fin = Math.floor((time_finish % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes_fin = Math.floor((time_finish % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds_fin = Math.floor((time_finish % (1000 * 60)) / 1000);
+
+	var years_tss = Math.floor(init_time_since / (1000 * 60 * 60 * 24 * 365));
+	var days_tss = Math.floor((init_time_since % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+	var hours_tss = Math.floor((init_time_since % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes_tss = Math.floor((init_time_since % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds_tss = Math.floor((init_time_since % (1000 * 60)) / 1000);
+
+	document.getElementById('days_text').innerHTML = days + 'd';
+	document.getElementById('hours_text').innerHTML = hours;
+	document.getElementById('mins_text').innerHTML = minutes;
+	document.getElementById('secs_text').innerHTML = seconds;
+
+	document.getElementById('finish_time').innerHTML = years_fin + 'y ' + days_fin + 'd ' + hours_fin + ':' + minutes_fin + ':' + seconds_fin;
+
+	var finish_date = now + time_finish;
+	var finish_date_obj = new Date(finish_date)
+	document.getElementById('finish_date_str').innerHTML = finish_date_obj.toGMTString();
+
+	document.getElementById('tss').innerHTML = years_tss + 'y ' + days_tss + 'd ' + hours_tss + ':' + minutes_tss + ':' + seconds_tss;
+
+}, 1000);
+</script>
+</div>
+
+<div class='data'>
+	<div class='rem_div'>
+		<a>Episodes Remaining: </a>
+		<a id='eps_rem'></a><br>
+	</div>
+	<div class='est_div'>
+		<a>Estimated Time Until Finish: </a>
+		<a id='finish_time'></a>
+	</div>
+	<div class='est_date_div'>
+		<a>Estimated Finish Date: </a>
+		<a id='finish_date_str'></a>
+	</div>
+	<div>
+		<a>Time since start:</a>
+		<a id='tss'></a>
+	</div>
+</div>
+
+<script>
+document.getElementById('eps_rem').innerHTML = eps_rem
+</script>
+
+<div class='image'>
+	<img src='bkg.png' class='meme'>
+</div>
+
+<!--
+<form>
+	<input type='password'></br>
+	<button type='button' >Reset</button>
+</form>
+-->
+
+<div class='progbar'>
+	<h1>Progress Bar</h1>
+	<img src='progress_bar.png' >
+	<a id='perc_complete_text'></a>
+</div>
+
+<script>
+	var perc_complete = ((eps_watched/eps_total)*100).toFixed(2); // rounds to 2 decimal places
+	document.getElementById('perc_complete_text').innerHTML = 'Completion: '+perc_complete+'%';
+</script>
+
+</body>
+</html>
